@@ -1,0 +1,15 @@
+{
+  "name": "topo-plugins",
+  "owner": {
+    "name": "Topo",
+    "url": "https://topo.io"
+  },
+  "description": "Topo plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "topo",
+      "source": "./",
+      "description": "Daily-run Topo workflows for sequences, inbox, tasks, and account briefs."
+    }
+  ]
+}

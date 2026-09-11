@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "topo",
+  "version": "1.2.0",
+  "description": "Daily-run Topo workflows for sequences, inbox, tasks, and account briefs.",
+  "author": {
+    "name": "Topo",
+    "url": "https://topo.io"
+  },
+  "homepage": "https://topo.io",
+  "repository": "https://github.com/topo-io/topo-plugin",
+  "license": "MIT",
+  "keywords": ["sales", "outreach", "sequences", "crm"]
+}

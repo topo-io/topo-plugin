@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "topo": {
+      "type": "http",
+      "url": "https://mcp.topo.io/mcp",
+      "oauth_resource": "https://mcp.topo.io"
+    }
+  }
+}

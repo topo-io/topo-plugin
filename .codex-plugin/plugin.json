@@ -1,0 +1,34 @@
+{
+  "name": "topo",
+  "version": "1.2.0",
+  "description": "Daily-run Topo workflows for sequences, inbox, tasks, and account briefs.",
+  "author": {
+    "name": "Topo",
+    "url": "https://topo.io"
+  },
+  "homepage": "https://topo.io",
+  "repository": "https://github.com/topo-io/topo-plugin",
+  "license": "MIT",
+  "keywords": ["sales", "outreach", "sequences", "crm"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Topo",
+    "shortDescription": "Run Topo sequences, inbox, tasks, and account briefs from chat",
+    "longDescription": "Install Topo once to connect the MCP server and load daily-run skills: record outreach outcomes, triage replies, review waiting leads, clear tasks, start outreach, create a sequence, source new leads, suppress targets, brief an account, diagnose a quiet sequence, and pause or resume sending.",
+    "developerName": "Topo",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://topo.io",
+    "defaultPrompt": [
+      "What replies came in overnight?",
+      "Sarah Chen booked a meeting — take her off the sequence.",
+      "Review the new leads on this sequence.",
+      "What's on my plate today?",
+      "Add these people to the sequence and start them.",
+      "Create a sequence for CTOs of AI startups in France.",
+      "Find me 50 VPs of Sales in France.",
+      "Brief me on this account before my call."
+    ]
+  }
+}
