@@ -13,7 +13,7 @@ words decide the write. "Take them off the sequence" is three different tools.
 1. Resolve the lead. Prefer `get_contact(email=…)` or `linkedin_url`. If only
    a name is known: `search(query, types=["lead"])` → `fetch(id)` →
    `metadata.contact_id`. Never pass a `lead:<uuid>` typed id to another tool.
-   `get_contact` now also returns `account_id`, `account_domain`, and
+   `get_contact` also returns `account_id`, `account_domain`, and
    `active_sequence_ids`.
 2. Need enrollment ids? Prefer `get_contact.active_sequence_ids`. If this
    came from a thread, `get_thread.sequence_id` is the one enrollment.

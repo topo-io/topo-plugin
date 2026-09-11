@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "topo",
-  "version": "1.2.0",
-  "description": "Daily-run Topo workflows for sequences, inbox, tasks, and account briefs.",
+  "version": "1.3.0",
+  "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
   "author": {
     "name": "Topo",
     "url": "https://topo.io"
@@ -10,5 +10,46 @@
   "homepage": "https://topo.io",
   "repository": "https://github.com/topo-io/topo-plugin",
   "license": "MIT",
-  "keywords": ["sales", "outreach", "sequences", "crm"]
+  "keywords": [
+    "sales",
+    "outbound",
+    "outreach",
+    "prospecting",
+    "sequences",
+    "crm",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Topo",
+        "shortDescription": "Run Topo outreach from chat",
+        "longDescription": "Topo is an outbound sales workspace: sequences, inbox, tasks, accounts, and lead sourcing in one place. This plugin connects the Topo MCP server and loads the skills sales teams run every day, so you can work your pipeline without leaving the conversation.\n\nAsk what replies came in overnight and answer them in-thread. Record a booked meeting, a won deal, or a not-interested reply so the sequence stops on its own. Review the leads waiting on a sequence and approve or refuse them. Clear the day's tasks, snooze what can wait, and hold or resume sending. Import people from a list or a CSV and start outreach, create a sequence template from a brief, or source new leads with a preview before any credits are spent. Before a call, get an account brief built from its contacts, enrollments, and threads.\n\nSign in with your Topo account the first time a tool runs; the plugin only sees the workspace you belong to. Actions that send, stop, block, or spend credits always ask you to confirm first.",
+        "developerName": "Topo",
+        "category": "Business & Operations",
+        "capabilities": [
+          "Triage inbound replies and answer them in-thread",
+          "Record meeting-booked, won, lost, and not-interested outcomes",
+          "Review, approve, or refuse leads waiting on a sequence",
+          "Clear the day's tasks and snooze what can wait",
+          "Import people from a list or CSV and start outreach",
+          "Create or clone sequence templates and edit their copy",
+          "Source new leads with a preview before spending credits",
+          "Suppress or release emails and domains",
+          "Brief an account from its contacts, enrollments, and threads",
+          "Diagnose a quiet sequence and pause or resume sending"
+        ],
+        "websiteURL": "https://topo.io",
+        "privacyPolicyURL": "https://www.topo.io/consents/privacy-policy",
+        "termsOfServiceURL": "https://www.topo.io/consents/terms-of-service",
+        "defaultPrompt": [
+          "What replies came in overnight, and which ones need an answer?",
+          "What's on my plate in Topo today?",
+          "Brief me on this account before my call."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
 }

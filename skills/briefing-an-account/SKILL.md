@@ -13,7 +13,7 @@ activities. Do not stop at `get_account`.
 ## Workflow
 
 1. Identify the account. Prefer `get_account(name=…|domain=…|account_id=…)`.
-   If the user named a person, `get_contact` now returns `account_id` and
+   If the user named a person, `get_contact` returns `account_id` and
    `account_domain` — pass `account_id` straight into `get_account`.
    If unknown: `search(query, types=["account"])` → `fetch` →
    `metadata.account_id`. Keep `account_id`, counts, and

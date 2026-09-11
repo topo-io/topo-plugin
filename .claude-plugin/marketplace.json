@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "topo-plugins",
   "owner": {
     "name": "Topo",
@@ -8,8 +9,27 @@
   "plugins": [
     {
       "name": "topo",
+      "displayName": "Topo",
       "source": "./",
-      "description": "Daily-run Topo workflows for sequences, inbox, tasks, and account briefs."
+      "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
+      "author": {
+        "name": "Topo",
+        "url": "https://topo.io"
+      },
+      "homepage": "https://topo.io",
+      "repository": "https://github.com/topo-io/topo-plugin",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "sales",
+        "outbound",
+        "outreach",
+        "prospecting",
+        "sequences",
+        "crm",
+        "mcp"
+      ],
+      "tags": ["sales", "outbound", "crm", "mcp"]
     }
   ]
 }

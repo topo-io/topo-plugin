@@ -37,7 +37,7 @@ does **not** create an exclusion. Unenrolling does.
    - Truly do-not-contact (competitor, customer, unsubscribe): do not refuse.
      Use `suppressing-or-releasing-targets`.
 8. If the work arrived as tasks instead of a template backlog:
-   `list_tasks(task_type=NEW_LEAD_REVIEW, status=PENDING)`. Each row now
+   `list_tasks(task_type=NEW_LEAD_REVIEW, status=PENDING)`. Each row
    includes `sequence_template_id` and `contact_id`. Completing the task
    **is** the write:
    `resolve_task(task_id, outcome=completed,

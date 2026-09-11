@@ -17,7 +17,7 @@ already running. Lifting an unsubscribe is a compliance decision.
 2. `list_exclusions(kind=…, search=value)`. Already blocked? Report
    `reason`, `until`, `source`, `exclusion_id`. Do not duplicate.
 3. "Why was this lead skipped?": `get_contact(email=…)` +
-   `list_sequences(contact_id)` + the exclusion row. `get_contact` now
+   `list_sequences(contact_id)` + the exclusion row. `get_contact`
    includes `account_id` and `account_domain` — use `account_domain`
    when they meant the whole company.
 4. Check live outreach before writing. For a person: `list_sequences(contact_id)`.

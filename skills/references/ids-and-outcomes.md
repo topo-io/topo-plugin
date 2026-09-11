@@ -3,9 +3,8 @@
 Read this before any write. Passing the wrong id, or calling `unenroll` for a
 meeting booked, corrupts the funnel and can keep sending.
 
-Field names below match the MCP wire after the chaining pass
-([mcp-executive-journeys](../../../docs/specifications/mcp-executive-journeys.md)):
-copy the identifier under the **same name** the next tool declares.
+Field names below match the MCP wire: copy the identifier under the **same
+name** the next tool declares.
 
 ## Which id to pass
 
@@ -71,9 +70,9 @@ Always confirm: `reply_to_message`, `enroll`, `approve_leads`,
 `set_sequence_template_status`, `delete_sequence_template`,
 `lead_approval_mode=AUTOPILOT`, `get_and_enrich_contact` (credits).
 
-## Still broken (product gaps, not missing fields)
+## Known gaps
 
-- `get_task` has no `thread_id` / `message_id`. Reply tasks still go
+- `get_task` has no `thread_id` / `message_id`. Reply tasks go
   `list_threads(contact_id)` → `last_message_id` (or `get_thread` for the
   body). `sequence_id` is on the task when it came from an enrollment.
 - `simulate_ai_variable` wants `sender_id`. Identities return `id` and
@@ -81,5 +80,6 @@ Always confirm: `reply_to_message`, `enroll`, `approve_leads`,
 
 ## What MCP cannot do
 
-Send the user to the Topo web app for: managing legacy-provider lead searches, authoring a playbook graph, connecting a
-mailbox or CRM, billing, inviting members. Do not pretend a workaround exists.
+Send the user to the Topo web app for: lead searches owned by a signal
+source, authoring a playbook graph, connecting a mailbox or CRM, billing,
+inviting members. Do not pretend a workaround exists.

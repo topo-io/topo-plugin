@@ -29,7 +29,7 @@ complete/skip task tools are not on this surface.
    use the list row's `assignee_user_id` without this extra get.
 4. If `contact_id` is set: `get_contact(contact_id)`. For reply types:
    `list_threads(contact_id)` — prefer `last_message_id` when
-   `last_message_direction` is inbound. `get_task` still has no
+   `last_message_direction` is inbound. `get_task` has no
    `thread_id` / `message_id`.
 5. Branch on `type`:
 
