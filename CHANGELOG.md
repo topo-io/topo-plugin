@@ -18,6 +18,9 @@
   `openWorldHint` explicitly; tools that reach beyond the workspace
   (replies, enrichment, lead-database runs, URL imports, webhook tests) are
   open-world.
+- Every tool parameter carries its type in place: enums and nested objects
+  are inlined in `inputSchema` instead of `$ref` pointers into `$defs`, so
+  directory scanners no longer report them as untyped.
 
 ## 1.2.0
 
