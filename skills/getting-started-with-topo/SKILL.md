@@ -5,7 +5,7 @@ description: Orient a Topo session — confirm who is signed in, take stock of t
 
 # Getting started with Topo
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) before any write.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) before any write.
 
 Topo is an outbound sales workspace: sequence templates send email and
 LinkedIn steps to enrolled leads, replies land in the inbox, and follow-up

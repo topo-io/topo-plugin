@@ -5,7 +5,7 @@ description: Block or lift emails and company domains on the Topo exclusion list
 
 # Suppressing or releasing targets
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 An exclusion blocks **future** import and enroll. It does not stop sequences
 already running. Lifting an unsubscribe is a compliance decision.

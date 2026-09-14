@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.1
+
+- The shared id and outcome rules are now the `ids-and-outcomes` skill, so
+  every directory under `skills/` is a skill with its own `SKILL.md` and the
+  other skills load it by name on hosts that import skills one by one.
+- `interface.supportURL` points at the Topo knowledge base
+  (`https://support.topo.io`), which the ChatGPT directory requires alongside
+  the website, privacy, and terms links.
+- `destructiveHint` now also covers the deletes (`delete_contact_list`,
+  `delete_account_list`, `delete_webhook`), the calls that can send or start
+  outreach (`execute_task`, `resolve_task`), the CRM overwrite
+  (`update_crm_field`), and the credit spends (`run_lead_search`,
+  `import_lead_search_results`); `execute_task` is open-world because it can
+  send a reply. Hosts now ask before running them.
+
 ## 1.3.0
 
 - Directory-ready listing for ChatGPT and Codex under `extensions.com.openai`

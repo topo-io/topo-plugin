@@ -5,7 +5,7 @@ description: Apply a known outreach outcome in Topo — meeting booked, won, not
 
 # Recording outreach outcomes
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first. The user's
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first. The user's
 words decide the write. "Take them off the sequence" is three different tools.
 
 ## Workflow

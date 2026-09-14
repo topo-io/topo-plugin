@@ -5,7 +5,7 @@ description: Assemble a pre-call account brief in Topo — roster, open sequence
 
 # Briefing an account
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 Default path is read-only. Join account, contacts, enrollments, threads, and
 activities. Do not stop at `get_account`.

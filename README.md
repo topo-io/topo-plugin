@@ -76,6 +76,7 @@ revoke access; tokens are deleted with it.
 | `briefing-an-account` | Assemble who we know, who is in sequence, and what they said |
 | `diagnosing-sequence-health` | Explain why a sequence is quiet and apply allowed ops fixes |
 | `holding-or-resuming-outreach` | Pause for OOO / bad timing without marking people lost |
+| `ids-and-outcomes` | Which id goes to which tool, and which write records each outcome; every other skill reads it first |
 
 ## Layout
 
@@ -89,6 +90,7 @@ MCP server: `https://mcp.topo.io/mcp`.
 
 ## Support, privacy, terms
 
+- Support: <https://support.topo.io>
 - Documentation: <https://docs.topo.io>
 - Plugin issues: <https://github.com/topo-io/topo-plugin/issues>
 - Privacy policy: <https://www.topo.io/consents/privacy-policy>

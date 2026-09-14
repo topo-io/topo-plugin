@@ -1,3 +1,8 @@
+---
+name: ids-and-outcomes
+description: Which Topo id to pass to which MCP tool, which write records a booked meeting, a loss, a hard no, or a pause, and which writes need the user's confirmation. Read before any Topo write, and whenever unsure whether to call stop_sequence, unenroll, or refuse_leads.
+---
+
 # IDs and outcomes
 
 Read this before any write. Passing the wrong id, or calling `unenroll` for a

@@ -5,7 +5,7 @@ description: Work the Topo task inbox — list what is due, then complete, skip,
 
 # Clearing today's tasks
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 `list_tasks` on MCP takes one `status`, one `task_type`, one `priority` — not
 arrays. `resolve_task` is the write (completed or skipped). The in-app

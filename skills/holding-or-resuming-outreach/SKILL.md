@@ -5,7 +5,7 @@ description: Temporarily pause Topo outreach for out-of-office, vacation, or bad
 
 # Holding or resuming outreach
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 OOO is the case where models call `unenroll` on a future buyer. Pause does
 not record a loss and does not create a `CONTACT_REFUSED` exclusion.

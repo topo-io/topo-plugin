@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "topo",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
   "author": {
     "name": "Topo",
@@ -40,6 +40,7 @@
           "Diagnose a quiet sequence and pause or resume sending"
         ],
         "websiteURL": "https://topo.io",
+        "supportURL": "https://support.topo.io",
         "privacyPolicyURL": "https://www.topo.io/consents/privacy-policy",
         "termsOfServiceURL": "https://www.topo.io/consents/terms-of-service",
         "defaultPrompt": [

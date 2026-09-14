@@ -5,7 +5,7 @@ description: Review leads waiting for approval (FOUND) on a sequence — qualify
 
 # Reviewing waiting leads
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 FOUND means enrolled and waiting. It is not "missing." Refusing a FOUND lead
 does **not** create an exclusion. Unenrolling does.

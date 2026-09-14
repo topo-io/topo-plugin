@@ -5,7 +5,7 @@ description: Author a new Topo outreach sequence from a name and ordered steps, 
 
 # Creating a sequence
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 A sequence template is the reusable outreach definition (name, steps, copy).
 Leads enroll into it later. Creating one does not send. It starts

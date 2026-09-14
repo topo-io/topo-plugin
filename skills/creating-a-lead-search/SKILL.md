@@ -5,7 +5,7 @@ description: Source new leads from criteria using Topo lead search, preview or r
 
 # Creating a lead search
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 Lead search sources new prospects from the Topo lead database. It is a
 multi-step journey with three mandatory human gates: filter review, spend

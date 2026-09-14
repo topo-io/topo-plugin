@@ -5,7 +5,7 @@ description: Work inbound email and LinkedIn replies in Topo — read the thread
 
 # Triaging inbound replies
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 `list_threads` and `get_thread` never send, categorize, or stop outreach.
 Quote only message text `get_thread` returned.

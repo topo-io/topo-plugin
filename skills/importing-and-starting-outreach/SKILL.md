@@ -5,7 +5,7 @@ description: Add named people to a contact list and enroll them in an existing T
 
 # Importing and starting outreach
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 `enroll` needs a sequence template and `contact_id`s. Pass `contact_list_id`
 when the people already sit on a list. Omit it after `import_leads` or when

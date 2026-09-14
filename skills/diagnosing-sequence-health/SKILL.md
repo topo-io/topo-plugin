@@ -5,7 +5,7 @@ description: Diagnose why a Topo sequence is not sending or underperforming usin
 
 # Diagnosing sequence health
 
-Read [ids-and-outcomes](../references/ids-and-outcomes.md) first.
+Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) first.
 
 "It's not sending" has several causes. Check operations before blaming copy.
 Weak copy after sends have happened is `creating-a-sequence`
