@@ -20,8 +20,10 @@ When to use this skill:
 
 ## Workflow
 
-1. `create_lead_search(description="...", contact_list_id=...)` →
+1. `create_lead_search(description="...")` →
    `lead_search_id`, `name`, `filters`, `state` (`draft`), `url`, `next_step`.
+   A lead search has no destination list of its own — the destination is
+   chosen at import time (step 7).
 2. **Gate 1 (filter review):** present the generated `filters` summary
    verbatim and wait for confirmation or feedback.
    - Changes requested: `refine_lead_search(lead_search_id, instruction="...")`
@@ -56,8 +58,8 @@ When to use this skill:
    - **Selection (mutually exclusive):** `select_all=true` (server-side import
      of every result, capped at 5,000 over MCP) or explicit `lead_keys=[...]`.
    - **Destination (mutually exclusive):** `contact_list_id` for an existing
-     list, `new_list_name` to create one, or neither to use the draft's
-     destination list.
+     list, `new_list_name` to create one, or neither — then a new list named
+     after the search is created for this import.
    - Optional: `enrich_phones=true` for phone enrichment on imported contacts.
 8. **After import:** `state` becomes `imported`. Enroll with
    `importing-and-starting-outreach` (`enroll`).
