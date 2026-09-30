@@ -29,9 +29,9 @@ does **not** create an exclusion. Unenrolling does.
    - `qualify_lead(contact_id)` — add `criteria` when they named extra rules
 6. Present a short approve / refuse list (name, title, company, score, reason).
 7. Writes:
-   - Fits: `approve_leads(sequence_template_id)`. Omit `contact_ids` when they
-     said "all." Pass `contact_ids` only for a small named subset. Never paste
-     a large id list — the server pages FOUND leads itself.
+   - Fits: `approve_leads(sequence_template_id, contact_ids=[…])` with the
+     leads they chose from the list you presented. `contact_ids` is required
+     (1 to 100 per call); for a larger backlog, approve page by page.
    - Not a fit for **this** sequence: `refuse_leads(sequence_template_id,
      contact_ids=[…])`.
    - Truly do-not-contact (competitor, customer, unsubscribe): do not refuse.
@@ -42,9 +42,7 @@ does **not** create an exclusion. Unenrolling does.
    **is** the write:
    `resolve_task(task_id, outcome=completed,
    new_lead_review_action=APPROVE|REFUSE)`. Do not also call
-   `approve_leads` for the same person. Use the row's
-   `sequence_template_id` only when they asked to approve the rest of
-   that template's FOUND pile in one call.
+   `approve_leads` for the same person.
 
 ## Rules
 

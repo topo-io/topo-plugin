@@ -91,7 +91,7 @@ MCP server: `https://mcp.topo.io/mcp`.
 ## Support, privacy, terms
 
 - Support: <https://support.topo.io>
-- Documentation: <https://docs.topo.io>
+- Documentation: <https://docs.topo.io/mcp>
 - Plugin issues: <https://github.com/topo-io/topo-plugin/issues>
 - Privacy policy: <https://www.topo.io/consents/privacy-policy>
 - Terms of service: <https://www.topo.io/consents/terms-of-service>

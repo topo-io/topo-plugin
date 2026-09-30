@@ -34,8 +34,10 @@ already running. Lifting an unsubscribe is a compliance decision.
      `holding-or-resuming-outreach` (`pause_sequence`). An exclusion with
      `update_exclusion(..., until=…)` also blocks new enrolls.
 6. Lift: `list_exclusions` → `exclusion_id` + `kind` → `remove_exclusion`.
-   Extra warning when `reason` is `UNSUBSCRIBED`, `BOUNCED`, or
-   `CONTACT_REFUSED`.
+   Extra warning when `reason` is `BOUNCED`. An opt-out (`UNSUBSCRIBED` or
+   `CONTACT_REFUSED`) cannot be removed, shortened, or relabeled over MCP:
+   `remove_exclusion` and `update_exclusion` return an error, and only a
+   person can lift it from the exclusions settings of the web app.
 7. CSV of emails/domains: `import_csv(destination=CONTACT_EXCLUSIONS|DOMAIN_EXCLUSIONS)`
    with `attachment_id` when the host uploaded a file, otherwise
    `csv_content` (header row included). Still `unenroll` anyone already

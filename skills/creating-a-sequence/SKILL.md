@@ -31,9 +31,10 @@ When to use this skill:
    `sender_identity_id` on a step overrides the template's identity for
    that step only.
 3. `create_sequence_template(name, steps, optional summary /
-   daily_leads_target / lead_approval_mode)` → `sequence_template_id`,
+   daily_leads_target)` → `sequence_template_id`,
    `status=PENDING_SETUP`, `url`, `next_step`. The host asks the user to
-   confirm before the write.
+   confirm before the write. The new sequence is `COPILOT`: every lead waits
+   for approval. Switching to `AUTOPILOT` is done in the web app.
 4. Launch only if they asked to start sending:
    - `list_sender_identities` → `set_sequence_template_senders`
      (`attach_identity_ids` covering every channel the steps use,
@@ -47,16 +48,18 @@ When to use this skill:
 1. `list_sequence_templates(query=…)` →
    `get_sequence_template(include_steps=true)` to confirm the source.
 2. `clone_sequence_template(sequence_template_id, name)` → a new
-   `sequence_template_id`, still `PENDING_SETUP`. Steps and operational
-   settings copy; senders do not. Then the same launch steps as create.
+   `sequence_template_id`, still `PENDING_SETUP` and `COPILOT`. Steps and
+   the other operational settings copy; senders do not. Then the same
+   launch steps as create.
 
 ## Workflow (edit steps)
 
 1. `get_sequence_template(sequence_template_id, include_steps=true)`.
 2. Send the **complete** new list to `update_sequence_template_steps`.
    Future enrollments use the new copy; already-enrolled leads keep theirs.
-3. Daily target, schedule, approval mode, and `bypass_account_exclusions`
-   stay on `update_sequence_template_settings`.
+3. Daily target, schedule, tracking, and failure handling stay on
+   `update_sequence_template_settings` (its `lead_approval_mode` only
+   accepts `COPILOT`).
 
 ## Workflow (per-lead copy)
 
@@ -74,8 +77,9 @@ When to use this skill:
   `update_sequence_template_assignment` (`assignment_pool_user_ids` from
   `list_organization_members`).
 - Reply-exclusion override: `update_sequence_template_exclusion_settings`.
-  Pass `settings=null` to inherit org defaults. Account-exclusion bypass
-  is `update_sequence_template_settings.bypass_account_exclusions`.
+  Pass `settings=null` to inherit org defaults. The unsubscribe rule is not
+  part of the override, and bypassing the account exclusion list is not
+  available over MCP: both are set in the web app.
 - Delete: `delete_sequence_template`. Refuses while any enrollment is still
   active.
 

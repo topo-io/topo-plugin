@@ -55,13 +55,15 @@ enrolling from a lead page — those contacts are already in the workspace.
 
 5. `enroll(sequence_template_id, contact_ids, conflict_strategy=SKIP,
    optional contact_list_id)`. Default `SKIP`. Use `ADD_IF_ALL_COMPLETED`
-   only if they asked to re-run finished people. Never default to `REPLACE`
-   or `ADD_ANYWAY`. Result: `enrolled_contact_ids`, `created_sequence_ids`,
-   skip counts.
+   only if they asked to re-run finished people; it re-enrolls only people
+   whose sequences ended at least `reenroll_cooldown_days` (90 minimum) ago.
+   People in another running sequence are always skipped over MCP; moving
+   them is done in the web app. Result: `enrolled_contact_ids`,
+   `created_sequence_ids`, skip counts.
 6. If `lead_approval_mode` is `COPILOT`: they land in `FOUND`.
-   `approve_leads` only after they say start them now — omit `contact_ids`
-   to approve every waiting lead on that template, or pass the small named
-   subset. If `AUTOPILOT`, they become `ACTIVE` without that call.
+   `approve_leads(sequence_template_id, contact_ids)` only after they say
+   which of them to start — `contact_ids` is required (1 to 100 per call).
+   If `AUTOPILOT`, they become `ACTIVE` without that call.
 7. Optional: `list_organization_members` → `assign_owner`.
 
 ## Rules
