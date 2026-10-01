@@ -33,11 +33,11 @@ Quote only message text `get_thread` returned.
    `categorize_reply(message_id, category)` —
    `MEETING`, `INTERESTED`, `BAD_TIMING`, `REFERRAL`, `WRONG_PERSON`,
    `LEFT_COMPANY`, `OUT_OF_OFFICE`, `SPAM_FILTER`, `UNKNOWN`,
-   `UNSUBSCRIBED`, `BOUNCED`.
+   `NOT_INTERESTED`, `UNSUBSCRIBED`, `BOUNCED`.
 7. Apply the matching write (category alone does nothing to sending):
 
    - Meeting / closed-won → `stop_sequence(sequence_id, reason=WIN, scope=CONTACT)`
-   - Hard no / unsubscribe / left company / bounce → `unenroll(contact_id)`
+   - Not interested / unsubscribe / left company / bounce → `unenroll(contact_id)`
      (or `stop_sequence(LOSE)` if only this enrollment should die)
    - OOO / bad timing → `pause_sequence(sequence_id, paused_until=…)`
    - Soft interest or a question → no stop; reply only
