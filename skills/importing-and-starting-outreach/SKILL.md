@@ -42,7 +42,7 @@ enrolling from a lead page — those contacts are already in the workspace.
      collect `contact_id`. Member rows include `email` and `linkedin_url`.
      Skip rows where `contact_id` is null (unresolved import row — they
      cannot enroll yet).
-   - **Already-known workspace contacts:** `upsert_contact` / `import_leads`
+   - **Already-known workspace contacts:** `create_or_update_contact` / `import_leads`
      → `id` / `contact_ids`. Enroll those `contact_id`s directly (omit
      `contact_list_id`). To also put them on a list, pass
      `add_contact_list_members(items=[{contact_id}])` — do not combine

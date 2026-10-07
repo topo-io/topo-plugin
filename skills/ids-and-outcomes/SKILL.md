@@ -54,7 +54,7 @@ key). Use that for "assign to me" instead of searching members by email.
 | Booked / meeting / we won / they're interested enough to stop as a success | `stop_sequence(sequence_id, reason=WIN, scope=CONTACT)` — `ACCOUNT` only if they said the whole company | `unenroll` (records a **loss** + 3-month `CONTACT_REFUSED`) |
 | Hard no / unsubscribe / never email me / left company (already in flight) | `unenroll(contact_id)` for every sequence, or `stop_sequence(LOSE)` for one enrollment | `refuse_leads` (FOUND-only, no exclusion) |
 | Not a fit for this sequence (still waiting, status `FOUND`) | `refuse_leads(sequence_template_id, contact_ids?)` | `unenroll` (3-month block) |
-| Approve the waiting leads | `approve_leads(sequence_template_id, contact_ids)` with the leads they chose (1 to 100 per call) | `execute_task` on each review task for the same people |
+| Approve the waiting leads | `approve_leads(sequence_template_id, contact_ids)` with the leads they chose (1 to 100 per call) | `resolve_task` on each review task for the same people |
 | Never contact this email/domain again | `add_exclusions` **and**, if already enrolled, `unenroll` | `add_exclusions` alone (does not stop live sequences) |
 | OOO / vacation / try again in Q1 | `pause_sequence(sequence_id, paused_until)` | `unenroll` |
 | Pause the whole sequence product | `set_sequence_template_status(INACTIVE)` | `unenroll` on every lead |
@@ -73,12 +73,15 @@ Always confirm: `reply_to_message`, `enroll`, `approve_leads`,
 `create_sequence_template`, `clone_sequence_template`,
 `update_sequence_template_steps`, `update_sequence_steps`,
 `set_sequence_template_status`, `delete_sequence_template`,
-`get_and_enrich_contact` (credits).
+`resume_sequence`, `remove_contact_list_member` (stops the sequences that
+list started), `get_and_enrich_contact` (credits).
 
 Not available over MCP, done by a person in the web app: switching a
 sequence to `AUTOPILOT`, bypassing the account exclusion list, the
-`ADD_ANYWAY` / `REPLACE` enrollment strategies, and removing, shortening, or
-relabeling an opt-out (`UNSUBSCRIBED`, `CONTACT_REFUSED`).
+`ADD_ANYWAY` / `REPLACE` enrollment strategies, removing, shortening, or
+relabeling an opt-out (`UNSUBSCRIBED`, `CONTACT_REFUSED`), and running or
+testing a playbook whose steps use an action that is not an MCP tool (an
+HTTP call, a teammate notification, a free-form AI step).
 
 ## Known gaps
 

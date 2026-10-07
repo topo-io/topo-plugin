@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.3.2
+
+- `openWorldHint` now covers every tool that reaches outside the workspace
+  directly or through what it turns on: outreach (`enroll`, `approve_leads`,
+  `resolve_task`, `resume_sequence`, `set_sequence_template_status`,
+  `update_contact_list`, `add_contact_list_members`), signal providers
+  (`preview_signal`, `create_signal`, `duplicate_signal`, `resume_signal`,
+  `update_signal_config`), the lead database and enrichment
+  (`import_lead_search_results`), AI web research (`create_ai_variable`),
+  webhook URLs (`create_webhook`, `update_webhook`), and playbooks
+  (`run_playbook`, `run_playbook_with_csv`, `set_playbook_status`).
+- `destructiveHint` now also covers the overwrites that keep no previous
+  value (`update_record`, `update_account_record`,
+  `update_sequence_variables`, `set_sequence_template_tags`,
+  `update_ai_variable`, `update_webhook`, `create_or_update_contact`),
+  `remove_contact_list_member` (it stops the sequences the list started),
+  `resume_sequence`, `stop_playbook_test_run`, and the list writes that can
+  enroll members into a default sequence.
+- `upsert_contact` is now `create_or_update_contact` and `upsert_account`
+  `find_or_create_account`; the old names still answer for hosts holding a
+  cached tool list.
+- `execute_task` is no longer an MCP tool: `reply_to_message` sends replies
+  and `resolve_task` decides reviews, calls and playbook approvals.
+- Playbooks only run or test over MCP when every step is itself an MCP tool;
+  `get_playbook_building_blocks` lists those actions only.
+- Shorter server instructions that lead with the confirmation rule.
+
 ## 1.3.1
 
 - The shared id and outcome rules are now the `ids-and-outcomes` skill, so
