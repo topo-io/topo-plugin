@@ -37,16 +37,16 @@ enrolling from a lead page — those contacts are already in the workspace.
 4. Ingest (pick one):
 
    - **Pasted handful of people:** `add_contact_list_members(contact_list_id,
-     items=[{email or linkedin_url, …}])` → `entry_ids`. Then
+     items=[{email, …}])` → `entry_ids`. Then
      `list_list_members(list_kind=CONTACT, list_id=contact_list_id)` and
-     collect `contact_id`. Member rows include `email` and `linkedin_url`.
+     collect `contact_id`. Member rows include `email`.
      Skip rows where `contact_id` is null (unresolved import row — they
      cannot enroll yet).
    - **Already-known workspace contacts:** `create_or_update_contact` / `import_leads`
      → `id` / `contact_ids`. Enroll those `contact_id`s directly (omit
      `contact_list_id`). To also put them on a list, pass
      `add_contact_list_members(items=[{contact_id}])` — do not combine
-     `contact_id` with email or LinkedIn on the same item.
+     `contact_id` with email on the same item.
    - **CSV:** if the host gave `attachment_id`,
      `import_csv(attachment_id, destination=CONTACT_LIST, name=…)`.
      Otherwise pass `csv_content` (header row included) and optional

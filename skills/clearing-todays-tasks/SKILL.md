@@ -35,7 +35,7 @@ complete/skip task tools are not on this surface.
 
    | Type | Next tool | How it closes |
    |---|---|---|
-   | `EMAIL_REPLY` / `LINKEDIN_REPLY` | `reply_to_message(message_id, body)` using `last_message_id` or the inbound `messages[].message_id` | Sending the reply closes it. Do **not** also `resolve_task`. |
+   | `EMAIL_REPLY` | `reply_to_message(message_id, body)` using `last_message_id` or the inbound `messages[].message_id` | Sending the reply closes it. Do **not** also `resolve_task`. |
    | `NEW_LEAD_REVIEW` | `qualify_lead(contact_id)` | `resolve_task(..., outcome=completed, new_lead_review_action=APPROVE\|REFUSE)` |
    | `CALL` | (the user's call result) | `resolve_task(..., call_disposition=ANSWERED\|VOICEMAIL_LEFT\|NO_ANSWER\|INTERESTED\|NOT_INTERESTED\|WRONG_NUMBER)` |
    | `PLAYBOOK_APPROVAL` | `get_playbook` only if they asked what it does | `resolve_task(..., playbook_approval_action=APPROVE\|REJECT)` |

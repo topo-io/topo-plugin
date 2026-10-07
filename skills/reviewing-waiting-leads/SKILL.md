@@ -49,4 +49,4 @@ does **not** create an exclusion. Unenrolling does.
 - Cannot create or edit the lead search that produced these leads.
 - `qualify_lead` does not enroll or approve.
 - Enrichment is ephemeral unless you then `update_record` / `create_or_update_contact`.
-- Approving starts real email or LinkedIn. Say that before the call.
+- Approving starts real outreach. Say that before the call.

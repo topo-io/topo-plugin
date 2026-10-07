@@ -7,8 +7,8 @@ description: Orient a Topo session — confirm who is signed in, take stock of t
 
 Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) before any write.
 
-Topo is an outbound sales workspace: sequence templates send email and
-LinkedIn steps to enrolled leads, replies land in the inbox, and follow-up
+Topo is an outbound sales workspace: sequence templates send email steps to
+enrolled leads, replies land in the inbox, and follow-up
 work becomes tasks. Every tool on this MCP is scoped to the workspace the
 signed-in user belongs to.
 

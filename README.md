@@ -65,7 +65,7 @@ revoke access; tokens are deleted with it.
 | Skill | Job |
 |---|---|
 | `getting-started-with-topo` | Confirm the connection, take stock, and route to the right skill |
-| `triaging-inbound-replies` | Work inbound email/LinkedIn replies and apply the matching outcome |
+| `triaging-inbound-replies` | Work inbound email replies and apply the matching outcome |
 | `recording-outreach-outcomes` | Apply a known win/loss/stop without corrupting the funnel |
 | `reviewing-waiting-leads` | Qualify waiting leads; approve or refuse without a 3-month block |
 | `clearing-todays-tasks` | Clear the personal task queue with the type-specific payload |

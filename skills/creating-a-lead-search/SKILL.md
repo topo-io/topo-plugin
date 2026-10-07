@@ -50,7 +50,7 @@ When to use this skill:
 6. **Gate 3 (result review):** when `state=results_ready`, inspect `sample`
    (up to 5 leads in `get_lead_search`) or page through results with
    `list_lead_search_results(lead_search_id, page=1, size=25)`. Each result
-   carries `lead_key` (LinkedIn URL or email). Never dump large result sets
+   carries the `lead_key` to import it by. Never dump large result sets
    into the conversation; review in small pages or via `url`.
 7. **Import into a contact list:**
    `import_lead_search_results(lead_search_id, ...)` → `contact_list_id`,

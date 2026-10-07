@@ -24,8 +24,7 @@ When to use this skill:
 1. `list_personalization_variables`. Insert names as `{{variable_name}}`.
    Unknown names are rejected on save. Use `list_ai_variables` when they
    want an AI field.
-2. Agree the steps with them: `action` (`EMAIL`, `LINKEDIN_INVITATION`,
-   `LINKEDIN_MESSAGE`, `LINKEDIN_INMAIL`, `MANUAL`), `subject` (first email
+2. Agree the steps with them: `action` (`EMAIL`, `MANUAL`), `subject` (first email
    or a later email with `new_thread=true`), `body`, `delay` in days after
    the previous step. The first step has no delay. Optional
    `sender_identity_id` on a step overrides the template's identity for

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.3
+
+- Skills describe email-only outreach, matching the connector's published
+  tools: step actions are `EMAIL` and `MANUAL`, leads resolve by email, and
+  the inbox and task flows cover email replies.
+
 ## 1.3.2
 
 - `openWorldHint` now covers every tool that reaches outside the workspace

@@ -1,6 +1,6 @@
 ---
 name: triaging-inbound-replies
-description: Work inbound email and LinkedIn replies in Topo — read the thread, classify intent, reply when needed, and apply the matching sequence outcome. Use when the user asks what came in overnight, who replied, what a lead said, or to handle the inbox.
+description: Work inbound email replies in Topo — read the thread, classify intent, reply when needed, and apply the matching sequence outcome. Use when the user asks what came in overnight, who replied, what a lead said, or to handle the inbox.
 ---
 
 # Triaging inbound replies
