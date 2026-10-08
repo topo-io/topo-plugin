@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.4
+
+- `destructiveHint` is now `false` only on writes that add something
+  (`create_*`, `add_*`, `submit_*`, …). Updates, removals, pauses, snoozes,
+  reassignments, archive toggles, draft edits and recategorizations ask for
+  confirmation, and so do `create_ai_variable` (auto-run spends credits),
+  `start_playbook_test_run` (paid reads set to RUN) and `ingest_event`.
+- `ingest_event` says that a recorded event starts event-triggered playbooks
+  and first-party signals and reaches webhook subscriptions, and is
+  open-world.
+- Signal, lead-data, enrichment and AI web research tools state where the
+  data comes from and how a person stays in control, with the link to the
+  data sources and removal page.
+
 ## 1.3.3
 
 - Skills describe email-only outreach, matching the connector's published
