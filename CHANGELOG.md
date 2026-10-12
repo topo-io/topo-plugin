@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.5
+
+- Bundle five positive and three negative MCP review cases in the OpenAI manifests.
+- Declare worldwide availability and no purchases or payment processing in the plugin.
+- Add a demo, reviewer-access and public-submission guide; recording, identity verification and portal checks remain separate requirements.
+
 ## 1.3.4
 
 - `destructiveHint` is now `false` only on writes that add something

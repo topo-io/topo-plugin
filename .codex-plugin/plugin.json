@@ -1,6 +1,6 @@
 {
   "name": "topo",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
   "author": {
     "name": "Topo",
@@ -49,5 +49,65 @@
     ],
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Workspace identity and sequence discovery. Setup: reviewer has OAuth access to a dedicated demo workspace with at least one sequence template. Read only; distinguish template IDs from lead enrollment IDs.",
+              "prompt": "Which Topo workspace am I connected to? Show me the first page of my outreach sequences.",
+              "tools_triggered": "whoami, list_sequence_templates",
+              "expected_behavior": "Call whoami, then list_sequence_templates. Report only the authenticated organization and the returned template names, statuses and sequence_template_id values. Explain pagination when next_cursor is present. Do not enumerate another workspace or invoke any write tool."
+            },
+            {
+              "description": "Personal pending task queue, including the empty-result boundary. Setup: OAuth user-bound reviewer account; seed at least one pending task assigned to that user for the populated variant, and rerun with no pending tasks for the empty variant.",
+              "prompt": "Show my pending tasks in Topo, grouped by type. Leave every task unchanged.",
+              "tools_triggered": "whoami, list_tasks",
+              "expected_behavior": "Resolve the signed-in user with whoami if not already known. Call list_tasks with assignee_email='me' and status='PENDING'. Group only returned tasks by type and include returned task_id and due_date when present. A zero-result response must be described as no matching pending tasks. Never call resolve_task, snooze_task or assign_task."
+            },
+            {
+              "description": "Read and triage inbound replies without sending. Setup: demo workspace has at least two email threads whose last_message_direction is INBOUND, one interested reply and one out-of-office reply, associated with sample contacts.",
+              "prompt": "Show the latest inbound email replies in Topo and suggest which need an answer. Draft answers, but do not send anything.",
+              "tools_triggered": "list_threads, get_thread",
+              "expected_behavior": "Call list_threads with last_message_direction='INBOUND', then get_thread for returned email thread_id values before quoting or drafting. Base each summary and draft on actual inbound messages and identify out-of-office replies separately. Preserve thread and contact associations. Never call reply_to_message, categorize_reply, stop_sequence or unenroll."
+            },
+            {
+              "description": "Join an account's contacts, outreach and conversations. Setup: preseed exactly one account named 'Topo Review Acme' with two sample contacts, one lead enrollment, one email thread and one activity. Populate enough company data to avoid enrichment.",
+              "prompt": "Brief me on Topo Review Acme before my call, using only the data already in Topo. Include contacts, outreach status and recent conversations.",
+              "tools_triggered": "get_account, list_contacts, get_contact, list_sequences, list_threads, get_thread, list_activities",
+              "expected_behavior": "Resolve get_account(name='Topo Review Acme') and use the returned account_id for list_contacts. Join returned contact_id values to get_contact, list_sequences, list_threads and list_activities; read get_thread for existing conversations. Distinguish sequence_id from sequence_template_id. Attribute claims and quotes to returned data, state missing information, and provide returned deep links. No enrichment, credit spend or writes."
+            },
+            {
+              "description": "Create a draft email sequence without activating outreach. Setup: demo workspace permits template creation and has no existing template named 'Topo Review Draft'; reset or use a clean workspace between runs. Accept the host's creation confirmation during the test.",
+              "prompt": "Create a sequence named Topo Review Draft with two emails: subject Intro, body Hello; then body Checking in, three days later in the same thread. Keep it as a draft and do not enroll anyone.",
+              "tools_triggered": "list_personalization_variables, create_sequence_template, get_sequence_template",
+              "expected_behavior": "Read list_personalization_variables as required by the creation workflow. Show the proposed steps and obtain any required host confirmation. Call create_sequence_template(name='Topo Review Draft', steps=[{step:1,action:'EMAIL',subject:'Intro',body:'Hello'},{step:2,action:'EMAIL',body:'Checking in',delay:3,new_thread:false}]). Read the returned sequence_template_id with get_sequence_template(include_steps=true); verify two ordered EMAIL steps and status='PENDING_SETUP'. Return its URL. Never attach senders, activate it, approve leads or enroll contacts."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Calendar scheduling is unsupported by Topo's MCP surface. Explain that Topo can record outreach outcomes or draft a reply if asked, but cannot create a calendar invitation. Do not call any Topo tool to pretend a calendar event was booked.",
+              "prompt": "Book a meeting with this lead tomorrow at 3pm and add it directly to my Google Calendar."
+            },
+            {
+              "description": "Mailbox OAuth connection is unsupported through MCP tools. Explain the user must connect the mailbox in the Topo web app before attaching an existing sender identity. Do not request passwords, invent a connection tool or claim sign-in is complete.",
+              "prompt": "Connect a new Gmail mailbox to Topo and complete its OAuth sign-in for me."
+            },
+            {
+              "description": "DNS administration is unsupported by Topo's MCP tools. Explain the DNS records must be changed through the user's DNS provider; offer setup guidance without claiming a change. Do not invoke Topo tools or invent DNS mutation tools.",
+              "prompt": "Update my domain's SPF and DKIM DNS records so Topo can send emails from it."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin requires a Topo account. It does not provide purchases, checkout or payment processing."
+      },
+      "publication": {
+        "release_notes": "Adds public-review metadata for the existing Topo MCP connection and 13 workflow skills: five positive cases, three unsupported-action cases, worldwide targeting and a no-commerce declaration. Includes a reproducible demo and publication guide.",
+        "countries": []
+      }
+    }
   }
 }

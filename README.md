@@ -45,6 +45,9 @@ claude plugin validate . --strict
 
 ### ChatGPT and Codex
 
+For public directory submission, see [the publication guide](PUBLICATION.md).
+A development installation does not establish public directory availability.
+
 Install Topo from the plugin directory, or point a local marketplace at a
 checkout of this repository (`plugin.json` at the root is the portable
 manifest; `.codex-plugin/plugin.json` is the compatibility fallback).
