@@ -52,10 +52,10 @@ the same review/publication values and listing.
 5. Run the complete cases on the demo account, then on the exact saved portal
    version. A connector smoke check does not replace a case execution.
 
-The documentation URL `https://docs.topo.io/mcp` returned a documentation MCP
-server discovery document to a browser-style HTTP request during preparation.
-Check that the listing and data-source/removal links lead to the intended
-human-readable documentation; a successful status is not enough.
+The connector guide lives at `https://docs.topo.io/mcp-connector`. Mintlify
+serves its own documentation MCP server at `docs.topo.io/mcp`, which returns
+JSON, so never link that path. Check that the listing and data-source/removal
+links open the human-readable page; a successful status is not enough.
 
 ## Demo account and fixtures
 
