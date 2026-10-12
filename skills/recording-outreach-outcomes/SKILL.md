@@ -42,8 +42,9 @@ words decide the write. "Take them off the sequence" is three different tools.
 6. Optional follow-through they asked for: `create_todo(contact_id, due_date,
    title)` with `whoami.user_id` when it is for them;
    `list_organization_members(query=name)` → `user_id` for a teammate;
-   `assign_owner` with `account_id` from `get_contact`; `update_crm_field`
-   only for a named CRM property. Domain exclude: `add_exclusions` with
+   `assign_owner` with `account_id` from `get_contact`; in the connected CRM,
+   `log_crm_activity` for a note, `create_crm_deal` for a booked meeting, or
+   `update_crm_field` for a named property (`updating-the-crm`). Domain exclude: `add_exclusions` with
    `get_contact.account_domain`.
 
 ## Rules
@@ -51,7 +52,8 @@ words decide the write. "Take them off the sequence" is three different tools.
 - Never call `unenroll` because they booked a meeting.
 - `get_contact.active_sequence_ids` are the live enrollments. Use
   `list_sequences` only when you need status or template on each one.
-- `update_crm_field` writes properties on an already-connected record. It
-  cannot create an opportunity or a meeting.
+- CRM writes only reach records already synced to the CRM, and never stop a
+  sequence: the Topo outcome above is still required. Topo has no calendar
+  tool, so it cannot book the meeting itself.
 - If nothing is in flight and they only want a future block, use
   `suppressing-or-releasing-targets`.

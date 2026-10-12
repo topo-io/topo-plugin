@@ -1,6 +1,6 @@
 ---
 name: briefing-an-account
-description: Assemble a pre-call account brief in Topo — roster, open sequences, inbox threads, recent activity, and ICP fit — then leave a next step if asked. Use when the user asks to brief an account, who we are talking to at a company, or what happened with a lead this month.
+description: Assemble a pre-call account brief in Topo — roster, open sequences, inbox threads, recent activity, buying signals, CRM deals, and ICP fit — then leave a next step if asked. Use when the user asks to brief an account, who we are talking to at a company, or what happened with a lead this month.
 ---
 
 # Briefing an account
@@ -29,14 +29,23 @@ activities. Do not stop at `get_account`.
    - `list_activities(contact_id, since=…)` — sent / opened / replied / hot lead
 5. Once: `get_organization_context`, then `qualify_lead(contact_id)` on the
    primary contact (and others if they asked).
-6. Writes only if they asked: `create_todo(contact_id, due_date, title)` after
+6. When a CRM is connected: `get_crm_record(object_type=account, account_id,
+   properties=[])` for the CRM owner and open / won deal counts, and
+   `search_deals(account_id, outcome=open)` for the live pipeline. Report
+   "not synced to the CRM yet" as-is.
+7. Buying signals: `list_signal_imports(kind=ACCOUNT)` or
+   `list_signal_imports(kind=CONTACT)` and keep the entries for this company
+   (hiring, job change, product event). Computed AI columns:
+   `get_ai_variable_values(account_ids=[account_id])`.
+8. Writes only if they asked: `create_todo(contact_id, due_date, title)` after
    `list_organization_members` for an assignee; `assign_owner(target=account,
-   account_id, user_id)`; a decided outcome → `recording-outreach-outcomes`.
+   account_id, user_id)`; a CRM note or deal → `updating-the-crm`; a decided
+   outcome → `recording-outreach-outcomes`.
 
 ## Rules
 
-- No CRM read (stage, ARR, opportunity). `update_crm_field` writes only.
-- No buying-signal feed and no web-browse tool on this MCP.
+- CRM data is read live and never stored in Topo; say which CRM it came from.
+- No web-browse tool on this MCP: `enrich_account` is the only outside lookup.
 - Inbox threads exist only if the lead was enrolled.
 - `get_and_enrich_contact` spends credits and does not save. Confirm first.
 - Present a brief: who, role, sequence status, last inbound quote, ICP

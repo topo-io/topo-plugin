@@ -87,7 +87,8 @@ When to use this skill:
 - Never invent `{{variable}}` names. Call `list_personalization_variables`
   first.
 - Cannot OAuth a mailbox. Attach identities that already exist.
-- Cannot author a playbook graph.
+- Automating work around the sequence (when a reply comes in, when a signal
+  fires) is a playbook: `building-a-playbook`.
 - Do not `set_sequence_template_status(ACTIVE)` until they asked to go live
   and senders cover the channels.
 - Template edits never rewrite already-enrolled leads. Per-lead copy is

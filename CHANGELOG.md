@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.4.0
+
+- Add seven skills for the rest of the connector: `setting-up-a-signal`,
+  `building-a-playbook` (with its authoring contract),
+  `running-and-monitoring-playbooks`, `creating-ai-variables`,
+  `managing-lists-and-accounts`, `updating-the-crm`, and
+  `configuring-the-workspace`.
+- `getting-started-with-topo` routes to them, and `ids-and-outcomes` lists
+  their ids and which of their writes need confirmation.
+- Existing skills no longer say playbooks, CRM reads, or signals are out of
+  reach: account briefs read CRM deals and signal imports, outcomes can log a
+  CRM note or open a deal, and sequence diagnosis checks mailbox
+  deliverability and the signals and playbooks that feed a sequence.
+
 ## 1.3.5
 
 - Bundle five positive and three negative MCP review cases in the OpenAI manifests.

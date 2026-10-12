@@ -52,7 +52,8 @@ complete/skip task tools are not on this surface.
 
 - Never complete a lead review, call, or playbook approval without its
   outcome field.
-- Cannot place a phone call or edit a playbook graph.
+- Cannot place a phone call. Changing the playbook behind an approval is
+  `building-a-playbook`.
 - Skipping is not completing. Use `outcome=skipped` only when the work no
   longer applies.
 - `create_todo(title, due_date)` for new trackable work. Prefer a due date

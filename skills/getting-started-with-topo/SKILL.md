@@ -1,6 +1,6 @@
 ---
 name: getting-started-with-topo
-description: Orient a Topo session — confirm who is signed in, take stock of the workspace, and route the request to the right Topo skill. Use when the user asks what Topo can do, whether they are connected, what is in their workspace, or gives an outbound sales request that does not obviously match another Topo skill.
+description: Orient a Topo session — confirm who is signed in, take stock of the workspace, and route the request to the right Topo skill (inbox, tasks, sequences, lead sourcing, signals, playbooks, AI variables, lists, CRM, workspace setup). Use when the user asks what Topo can do, whether they are connected, what is in their workspace, or gives an outbound sales request that does not obviously match another Topo skill.
 ---
 
 # Getting started with Topo
@@ -9,7 +9,10 @@ Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) bef
 
 Topo is an outbound sales workspace: sequence templates send email steps to
 enrolled leads, replies land in the inbox, and follow-up
-work becomes tasks. Every tool on this MCP is scoped to the workspace the
+work becomes tasks. Signals and lead searches feed lists with new leads,
+playbooks automate work on a trigger, AI variables compute per-lead
+research and personalization, and the company profile, audiences, and
+knowledge base tell Topo who the company is and who it targets. Every tool on this MCP is scoped to the workspace the
 signed-in user belongs to.
 
 ## First call of a session
@@ -49,6 +52,13 @@ metadata.
 | Prepare for a call on an account | `briefing-an-account` |
 | Understand why a sequence is quiet or how it performed | `diagnosing-sequence-health` |
 | Pause someone until a date, or resume | `holding-or-resuming-outreach` |
+| Be told when something happens (hiring, job change, product event) | `setting-up-a-signal` |
+| Automate a workflow on a trigger, or edit, test, publish a playbook | `building-a-playbook` |
+| See which automations run, turn one on or off, run one, debug a run | `running-and-monitoring-playbooks` |
+| Add an AI column or personalization variable, or run one | `creating-ai-variables` |
+| Organize accounts, contact or account lists, custom fields | `managing-lists-and-accounts` |
+| Read the CRM, log a note, create a deal, update a CRM field | `updating-the-crm` |
+| Update the company profile, audiences, knowledge base, webhooks, sender health | `configuring-the-workspace` |
 
 ## Rules
 
@@ -56,4 +66,5 @@ metadata.
   the user's explicit go-ahead; state the plan in one sentence first.
 - Share the `url` a tool returns so the user can open the record in Topo.
 - Send the user to the Topo web app for what MCP cannot do: connecting a
-  mailbox or CRM, billing, inviting members, playbook graphs.
+  mailbox or CRM, billing, inviting members, entering a Vault secret, and
+  running a playbook that uses an app-only action.

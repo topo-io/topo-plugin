@@ -11,7 +11,7 @@
       "name": "topo",
       "displayName": "Topo",
       "source": "./",
-      "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
+      "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, start outreach, source leads, set up signals, playbooks and AI variables, and brief accounts.",
       "author": {
         "name": "Topo",
         "url": "https://topo.io"

@@ -21,10 +21,10 @@ and let the existing publish workflow synchronize the mirror.
 
 | Item | Value |
 | --- | --- |
-| Package | `topo`, version `1.3.5` |
+| Package | `topo`, version `1.4.0` |
 | Intended publisher | Topo, business identity; verification remains to be checked |
 | Public integration | `https://mcp.topo.io/mcp`, Streamable HTTP, OAuth |
-| Workflow skills | 13, unchanged |
+| Workflow skills | 20 (seven added in 1.4.0) |
 | Distribution | All countries offered by the portal; `countries: []` removes restrictions |
 | Commerce | No purchases, checkout or payment processing in the plugin |
 | Review cases | Five positive and three negative, embedded in both OpenAI manifests |
@@ -65,6 +65,11 @@ prospect conversations in the recording.
 Prepare:
 
 - At least one sequence template and permission to create a separate draft.
+- Signals enabled on the workspace, with one active hiring signal (for
+  example "SDR hires") that enrolls into that sequence template and has
+  already imported a few leads into its list. The preview in positive case 1
+  queries the signal provider for real, so the workspace needs provider
+  access, but it creates nothing and spends no credits.
 - A pending task assigned to the reviewer; allow an empty-queue variant.
 - Two sample inbound email threads, one interested and one out of office.
 - One account named `Topo Review Acme`, two contacts, an enrollment, an email
@@ -87,6 +92,7 @@ First rehearse the five positive cases and three negative cases from
 | Segment | Show |
 | --- | --- |
 | Connection | Topo selected in ChatGPT, signed-in demo workspace, identity and sequence list |
+| Signals | Active signals and what they imported, then a hiring-signal preview; nothing created |
 | Tasks | Pending tasks grouped by type, without resolving any |
 | Inbox | Actual inbound results, thread reads and draft responses; no sending |
 | Account | The brief of Topo Review Acme, supported by returned contacts and conversations |
@@ -112,7 +118,7 @@ actual URL to the manifest. A script, mockup or unverified link is not a recordi
 | Source tool annotations | Passed, source only | All 175 tools in the inspected MCP contract explicitly declare the three boolean hints |
 | Five positive review cases | Not run end to end | Dedicated reviewer fixtures and matching package installation still required |
 | Three negative review cases | Not run | Draft expectations only; verify model behavior in the intended host |
-| Video | Blocked | No actual recorded video/link supplied |
+| Video | Recorded | Unlisted walkthrough at <https://youtu.be/nA_XxfGYNSE>, set as `demo_recording_url` |
 | Portal identity, scans and reviewer access | Not verified | Requires the intended submission organization and reviewer setup |
 
 These are preparation results, not a public-review verdict. No outreach,
@@ -143,6 +149,6 @@ configuration, skills and referenced assets. Keep the ZIP outside that directory
 Exclude Git internals, credentials, dependency folders and symlinks.
 
 Inspect the ZIP itself: no root `.app.json`, no non-null `apps` declarations,
-13 skill frontmatters, synchronized versions, all icons included, five positive
+20 skill frontmatters, synchronized versions, all icons included, five positive
 and three negative cases, and supported publication values. Until the recording,
 access and portal checks above are complete, label the archive as a review draft.

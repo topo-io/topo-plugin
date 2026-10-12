@@ -17,6 +17,11 @@ When to use this skill:
 - **Searching existing workspace contacts:** `list_contacts` or `search`.
 - **Ingesting people you already have:** `importing-and-starting-outreach`
   (`import_leads` / `add_contact_list_members`).
+- **Being told when new people match over time:** `setting-up-a-signal`.
+
+When the user gives no target, `list_audiences` and ask which audience
+applies; `get_audience` returns its filters to describe in
+`create_lead_search`.
 
 ## Workflow
 

@@ -23,6 +23,14 @@ only; it does not load the workflows.
 - Suppress or release emails and domains.
 - Brief an account from its contacts, enrollments, and threads.
 - Diagnose a quiet sequence and apply the operational fixes MCP allows.
+- Set up signals that watch for hiring, job changes, or product
+  events and feed new leads into a list every day.
+- Build, test, and publish playbooks, run them, and see why a run failed.
+- Add AI columns that research or score accounts and leads, with a credit
+  estimate before every run.
+- Organize accounts, contact lists, and account lists.
+- Read the connected CRM, log notes, and open deals.
+- Keep the company profile, audiences, and knowledge base up to date.
 
 Reads are free. Anything that sends, stops, blocks, or spends credits asks for
 your confirmation first.
@@ -79,6 +87,13 @@ revoke access; tokens are deleted with it.
 | `briefing-an-account` | Assemble who we know, who is in sequence, and what they said |
 | `diagnosing-sequence-health` | Explain why a sequence is quiet and apply allowed ops fixes |
 | `holding-or-resuming-outreach` | Pause for OOO / bad timing without marking people lost |
+| `setting-up-a-signal` | Create, monitor, retarget, pause, or retire a daily buying-signal watch |
+| `building-a-playbook` | Author a trigger-based automation, test it step by step and end to end, publish it |
+| `running-and-monitoring-playbooks` | Enable, pause, or run a playbook and diagnose its runs |
+| `creating-ai-variables` | Draft, test, estimate, and run AI columns and personalization variables |
+| `managing-lists-and-accounts` | Accounts, contact and account lists, members, and custom fields |
+| `updating-the-crm` | Read CRM records and deals, log notes, create deals, update properties |
+| `configuring-the-workspace` | Company profile, audiences, knowledge base, sender health, webhooks |
 | `ids-and-outcomes` | Which id goes to which tool, and which write records each outcome; every other skill reads it first |
 
 ## Layout

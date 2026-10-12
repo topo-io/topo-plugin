@@ -29,12 +29,17 @@ Weak copy after sends have happened is `creating-a-sequence`
    - `WAITING_FOR_USER` — humans (inbox / tasks), not the sender
    - `FAILED` — sample `get_sequence` for the error
 4. `list_sender_identities` vs identities on the template. Empty senders →
-   cannot send. Identities use `id` as `attach_identity_ids`.
+   cannot send. Identities use `id` as `attach_identity_ids`. Then
+   `list_sender_deliverability`: a Topo-hosted mailbox scoring below 7 has a
+   daily sending limit of 0 until its score recovers.
 5. If FOUND is high: `list_tasks(task_type=NEW_LEAD_REVIEW, status=PENDING)`.
    Each row includes `sequence_template_id` — keep the ones for this
    template (MCP `list_tasks` has no template query param).
-6. Optional: `list_playbooks` / `list_playbook_runs(status=FAILED)` if they
-   believe a playbook feeds this sequence.
+6. If leads should be arriving on their own: `list_signals` shows the
+   signals that enroll into this template (`list_signal_imports(signal_id)`
+   for what they brought in, see `setting-up-a-signal`), and
+   `list_playbooks` / `list_playbook_runs(status=FAILED)` the playbooks that
+   feed it (`running-and-monitoring-playbooks`).
 7. Allowed ops writes, only if they asked:
    - `set_sequence_template_status(ACTIVE|INACTIVE|ARCHIVED)` — `ACTIVE`
      re-validates readiness
@@ -47,7 +52,8 @@ Weak copy after sends have happened is `creating-a-sequence`
 
 Stop at the first failing gate.
 
-1. Template not `ACTIVE`, or no sender identity.
+1. Template not `ACTIVE`, no sender identity, or every sender's
+   deliverability score below 7.
 2. Many `FOUND`, few `ACTIVE` — approval mode, not copy.
 3. `unique_found` >> `unique_sent` — daily cap, schedule, or missing contact
    data (`settings.missing_contact_data_behavior`).

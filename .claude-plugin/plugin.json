@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "topo",
   "displayName": "Topo",
-  "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, review waiting leads, start outreach, source leads, and brief accounts.",
-  "version": "1.3.5",
+  "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, start outreach, source leads, set up signals, playbooks and AI variables, and brief accounts.",
+  "version": "1.4.0",
   "author": {
     "name": "Topo",
     "url": "https://topo.io"
