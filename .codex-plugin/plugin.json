@@ -1,6 +1,6 @@
 {
   "name": "topo",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, start outreach, source leads, set up signals, playbooks and AI variables, and brief accounts.",
   "author": {
     "name": "Topo",
@@ -113,7 +113,7 @@
         "demo_recording_url": "https://youtu.be/nA_XxfGYNSE"
       },
       "publication": {
-        "release_notes": "Adds seven workflow skills on top of the existing Topo MCP connection, for 20 in total: signals, building playbooks, running and monitoring playbooks, AI variables, lists and accounts, the connected CRM, and workspace configuration. Existing skills now route to them and no longer send playbook authoring, CRM reads, or signals to the web app. Keeps the public-review metadata: five positive cases, three unsupported-action cases, worldwide targeting and a no-commerce declaration.",
+        "release_notes": "Addresses the third review. The MCP server no longer advertises the get_more_tools virtual tool, no longer adds context or llm_model inputs to every tool, and no longer returns a conversation_id session handle in tool results. update_ai_variable and get_contact_enrichment now set openWorldHint to true, and the server instructions no longer ask the model to withhold the names of data providers. Skills and review cases are unchanged: 20 workflow skills, five positive cases, three unsupported-action cases, worldwide targeting and a no-commerce declaration.",
         "countries": []
       }
     }

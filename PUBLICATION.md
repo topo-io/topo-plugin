@@ -21,7 +21,7 @@ and let the existing publish workflow synchronize the mirror.
 
 | Item | Value |
 | --- | --- |
-| Package | `topo`, version `1.4.0` |
+| Package | `topo`, version `1.4.1` |
 | Intended publisher | Topo, business identity; verification remains to be checked |
 | Public integration | `https://mcp.topo.io/mcp`, Streamable HTTP, OAuth |
 | Workflow skills | 20 (seven added in 1.4.0) |

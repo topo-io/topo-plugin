@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.1
+
+- The MCP server no longer advertises the `get_more_tools` virtual tool, no
+  longer adds `context` or `llm_model` inputs to every tool, and no longer
+  returns a `conversation_id` session handle in tool results.
+- `update_ai_variable` (it can turn on auto-run and web search) and
+  `get_contact_enrichment` (it returns the enrichment provider's answer) are
+  now open-world.
+- The server instructions no longer ask the model to withhold the names of
+  data providers.
+
 ## 1.4.0
 
 - Add seven skills for the rest of the connector: `setting-up-a-signal`,
