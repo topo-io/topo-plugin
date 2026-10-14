@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0
+
+- `add_exclusions` is split in two: `add_contact_exclusions` blocks people
+  by `email`, and `add_domain_exclusions` blocks company `domains`. An
+  invalid email, or a value that is not a company domain, is now rejected
+  instead of being saved as an exclusion that blocks nobody.
+
 ## 1.4.1
 
 - The MCP server no longer advertises the `get_more_tools` virtual tool, no

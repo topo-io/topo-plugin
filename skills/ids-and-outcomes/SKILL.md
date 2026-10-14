@@ -21,14 +21,14 @@ name** the next tool declares.
 | `thread_id` | `list_threads` | `get_thread`, `archive_thread` | `reply_to_message`, `categorize_reply` |
 | `last_message_id` / inbound `message_id` | `list_threads.last_message_id`, `get_thread.messages[].message_id` | `reply_to_message`, `categorize_reply` | `archive_thread` |
 | `account_id` | `get_account`, `get_contact`, `list_contacts`, `list_accounts`, `find_or_create_account` | `get_account`, `list_contacts`, `assign_owner` (target=account), `update_account_record`, `get_crm_record`, `search_deals`, `create_crm_deal`, `log_crm_activity` | — |
-| `account_domain` | `get_contact`, `get_account` | `add_exclusions` (`kind=DOMAIN`), `enrich_account` | — |
+| `account_domain` | `get_contact`, `get_account` | `add_domain_exclusions`, `enrich_account` | — |
 | `contact_list_id` | `create_contact_list`, `list_contact_lists` (also aliased as `id`), `get_signal` | `enroll` (optional when contacts are already in the workspace), `add_contact_list_members`, `update_contact_list`, `delete_contact_list`, `estimate_ai_variable_run` / `run_ai_variable` (scope `ALL`) | — |
 | `account_list_id` | `create_account_list`, `list_account_lists`, `get_signal` | `add_account_list_members`, `update_account_list`, `delete_account_list`, `estimate_ai_variable_run` / `run_ai_variable` (scope `ALL`) | `enroll` |
 | `list_id` + `list_kind` | `get_list` (`list_kind` is `CONTACT` / `ACCOUNT`) | `list_list_members` (lowercase `contact` / `account` also accepted) | — |
 | list `entry_id` | `list_list_members`, `add_contact_list_members` | `remove_contact_list_member` / `remove_account_list_member` | `enroll`, `unenroll` |
 | `task_id` | `list_tasks`, `get_task` (same value as `id`) | `get_task`, `resolve_task`, `assign_task`, `snooze_task`, `reopen_task`, `update_todo` | — |
 | `assignee_user_id` | `whoami.user_id` (user-bound), `list_tasks`, `get_task`, `list_organization_members` | `assign_task`, `create_todo`, `assign_owner` | — |
-| `exclusion_id` + `kind` | `list_exclusions`, `add_exclusions.created[]` | `update_exclusion`, `remove_exclusion` | — |
+| `exclusion_id` + `kind` | `list_exclusions`, `add_contact_exclusions.created[]`, `add_domain_exclusions.created[]` | `update_exclusion`, `remove_exclusion` | — |
 | `lead_search_id` | `create_lead_search`, `list_lead_searches` | `get_lead_search`, `refine_lead_search`, `preview_lead_search`, `run_lead_search`, `list_lead_search_results`, `import_lead_search_results` | — |
 | `signal_id` | `list_signals`, `create_signal`, `duplicate_signal` | `get_signal`, `show_signal`, `list_signal_imports`, `update_signal`, `update_signal_config`, `pause_signal`, `resume_signal`, `archive_signal`, `unarchive_signal`, `duplicate_signal` | — |
 | `playbook_id` + `revision` / `live_version` | `list_playbooks`, `create_playbook`, `get_playbook_draft` | `get_playbook_draft`, `edit_playbook_draft` (`expected_revision`), `publish_playbook` / `rollback_playbook` (`expected_live_version`), `set_playbook_status`, `run_playbook`, test tools | — |
@@ -64,7 +64,7 @@ key). Use that for "assign to me" instead of searching members by email.
 | Hard no / unsubscribe / never email me / left company (already in flight) | `unenroll(contact_id)` for every sequence, or `stop_sequence(LOSE)` for one enrollment | `refuse_leads` (FOUND-only, no exclusion) |
 | Not a fit for this sequence (still waiting, status `FOUND`) | `refuse_leads(sequence_template_id, contact_ids?)` | `unenroll` (3-month block) |
 | Approve the waiting leads | `approve_leads(sequence_template_id, contact_ids)` with the leads they chose (1 to 100 per call) | `resolve_task` on each review task for the same people |
-| Never contact this email/domain again | `add_exclusions` **and**, if already enrolled, `unenroll` | `add_exclusions` alone (does not stop live sequences) |
+| Never contact this email/domain again | `add_contact_exclusions` / `add_domain_exclusions` **and**, if already enrolled, `unenroll` | An exclusion alone (does not stop live sequences) |
 | OOO / vacation / try again in Q1 | `pause_sequence(sequence_id, paused_until)` | `unenroll` |
 | Pause the whole sequence product | `set_sequence_template_status(INACTIVE)` | `unenroll` on every lead |
 
@@ -77,8 +77,8 @@ The host MCP client owns approval. State the plan in one sentence, then call
 the tool and let the interrupt fire. There is no dedicated ask-user tool.
 
 Always confirm: `reply_to_message`, `enroll`, `approve_leads`,
-`stop_sequence`, `unenroll`, `refuse_leads` (bulk), `add_exclusions` with
-`kind=DOMAIN`, `remove_exclusion`, `import_csv` into exclusions,
+`stop_sequence`, `unenroll`, `refuse_leads` (bulk), `add_domain_exclusions`,
+`remove_exclusion`, `import_csv` into exclusions,
 `create_sequence_template`, `clone_sequence_template`,
 `update_sequence_template_steps`, `update_sequence_steps`,
 `set_sequence_template_status`, `delete_sequence_template`,

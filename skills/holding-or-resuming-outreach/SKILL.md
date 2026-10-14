@@ -31,7 +31,7 @@ not record a loss and does not create a `CONTACT_REFUSED` exclusion.
    - Resume template: `set_sequence_template_status(..., ACTIVE)` (validates
      senders / readiness)
 4. If they also said "don't let new searches pick them up":
-   `add_exclusions` then `update_exclusion` with `created[].exclusion_id`
+   `add_contact_exclusions` then `update_exclusion` with `created[].exclusion_id`
    - `kind` and `until`. Pause alone does not block new enrolls.
 5. If an inbound OOO started this: `list_threads` → `last_message_id` (or
    `get_thread` for the body) → `categorize_reply(OUT_OF_OFFICE|BAD_TIMING)`

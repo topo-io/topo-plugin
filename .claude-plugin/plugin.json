@@ -3,7 +3,7 @@
   "name": "topo",
   "displayName": "Topo",
   "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, start outreach, source leads, set up signals, playbooks and AI variables, and brief accounts.",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "author": {
     "name": "Topo",
     "url": "https://topo.io"

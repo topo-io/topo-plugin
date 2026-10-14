@@ -44,7 +44,7 @@ words decide the write. "Take them off the sequence" is three different tools.
    `list_organization_members(query=name)` → `user_id` for a teammate;
    `assign_owner` with `account_id` from `get_contact`; in the connected CRM,
    `log_crm_activity` for a note, `create_crm_deal` for a booked meeting, or
-   `update_crm_field` for a named property (`updating-the-crm`). Domain exclude: `add_exclusions` with
+   `update_crm_field` for a named property (`updating-the-crm`). Domain exclude: `add_domain_exclusions` with
    `get_contact.account_domain`.
 
 ## Rules

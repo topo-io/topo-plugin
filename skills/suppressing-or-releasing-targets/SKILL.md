@@ -24,7 +24,9 @@ already running. Lifting an unsubscribe is a compliance decision.
    For a domain: `get_account(domain=…)` (or `get_contact.account_id`) →
    `list_contacts(account_id)` → `list_sequences` per `contact_id`.
 5. Writes:
-   - Future block: `add_exclusions(items=[{value, kind}], message=…)`.
+   - Future block: `add_contact_exclusions(items=[{email}], message=…)`
+     for people, `add_domain_exclusions(domains=[…], message=…)` for
+     companies.
      Always pass `message`. Result is `created_count` / `skipped_count`
      and `created[]` with `exclusion_id` + `kind` + `value`. Skipped
      duplicates are omitted from `created`.
