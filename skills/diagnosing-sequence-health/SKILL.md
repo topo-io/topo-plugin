@@ -52,8 +52,8 @@ Weak copy after sends have happened is `creating-a-sequence`
 
 Stop at the first failing gate.
 
-1. Template not `ACTIVE`, no sender identity, or every sender's
-   deliverability score below 7.
+1. Template not `ACTIVE` (the launch check names a sender lacking a
+   channel), or every sender's deliverability score below 7.
 2. Many `FOUND`, few `ACTIVE` — approval mode, not copy.
 3. `unique_found` >> `unique_sent` — daily cap, schedule, or missing contact
    data (`settings.missing_contact_data_behavior`).

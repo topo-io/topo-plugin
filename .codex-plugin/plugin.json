@@ -1,6 +1,6 @@
 {
   "name": "topo",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Run your Topo outbound workspace from chat: triage replies, clear tasks, start outreach, source leads, set up signals, playbooks and AI variables, and brief accounts.",
   "author": {
     "name": "Topo",
@@ -113,7 +113,7 @@
         "demo_recording_url": "https://youtu.be/nA_XxfGYNSE"
       },
       "publication": {
-        "release_notes": "Addresses the third review. The MCP server no longer advertises the get_more_tools virtual tool, no longer adds context or llm_model inputs to every tool, and no longer returns a conversation_id session handle in tool results. update_ai_variable and get_contact_enrichment now set openWorldHint to true, and the server instructions no longer ask the model to withhold the names of data providers. Skills and review cases are unchanged: 20 workflow skills, five positive cases, three unsupported-action cases, worldwide targeting and a no-commerce declaration.",
+        "release_notes": "Addresses the fourth review: every tool's annotations now match what it does. openWorldHint is true on the lead search tools that query the external lead database (create_lead_search, refine_lead_search, get_lead_search, show_lead_search, list_lead_search_results) and on publish_playbook and rollback_playbook, which put a playbook's outbound steps live. destructiveHint is true on create_webhook and send_test_webhook (outbound sends to an external URL), add_contact_exclusions and add_domain_exclusions (workspace-wide block) and complete_product_feedback. Tool descriptions state credit use and data sources, and name only tools this server publishes. Since 1.4.1, add_exclusions is split into add_contact_exclusions and add_domain_exclusions. Skills and review cases are unchanged: 20 workflow skills, five positive cases, three unsupported-action cases, worldwide targeting and a no-commerce declaration.",
         "countries": []
       }
     }

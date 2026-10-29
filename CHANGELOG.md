@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.5.1
+
+- `openWorldHint` is now true on the lead search tools that query the
+  external lead database (`create_lead_search`, `refine_lead_search`,
+  `get_lead_search`, `show_lead_search`, `list_lead_search_results`) and on
+  `publish_playbook` and `rollback_playbook`.
+- `destructiveHint` is now true on `create_webhook`, `send_test_webhook`,
+  `add_contact_exclusions`, `add_domain_exclusions` and
+  `complete_product_feedback`.
+- Tool descriptions state credit use and data sources, and name only tools
+  the connector publishes.
+
 ## 1.5.0
 
 - `add_exclusions` is split in two: `add_contact_exclusions` blocks people

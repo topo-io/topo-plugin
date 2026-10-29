@@ -18,13 +18,12 @@ enrolling from a lead page — those contacts are already in the workspace.
 ## Workflow
 
 1. `list_sequence_templates(query=…, status=ACTIVE)` →
-   `get_sequence_template(sequence_template_id)`. Confirm `status=ACTIVE`,
-   `sender_identities` is non-empty, and read
+   `get_sequence_template(sequence_template_id)`. Confirm `status=ACTIVE`
+   (activation already checked that its senders can send), and read
    `settings.lead_approval_mode` and `settings.daily_leads_target`. If
-   `PENDING_SETUP` or no senders: stop and send them to the web app to
-   finish setup. You may `set_sequence_template_senders` with existing
-   identities (`attach_identity_ids` and `detach_identity_ids` are both
-   required — pass `[]` for the unused side) but you cannot OAuth a mailbox.
+   `PENDING_SETUP`: stop and send them to the web app to finish setup. You
+   may change who sends with `update_sequence_template_assignment` and
+   existing identities, but you cannot OAuth a mailbox.
    A missing template is `creating-a-sequence`, not this skill.
 2. Resolve or create the list only when they asked to keep people on one:
    `get_list(name=…)` or `list_contact_lists(search=…)`. Prefer

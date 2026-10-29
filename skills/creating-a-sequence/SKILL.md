@@ -9,7 +9,8 @@ Read the `ids-and-outcomes` skill ([SKILL.md](../ids-and-outcomes/SKILL.md)) fir
 
 A sequence template is the reusable outreach definition (name, steps, copy).
 Leads enroll into it later. Creating one does not send. It starts
-`PENDING_SETUP` until senders are attached and status is `ACTIVE`.
+`PENDING_SETUP` with its creator's identity as sender, and sends once
+`ACTIVE`.
 
 When to use this skill:
 
@@ -35,10 +36,13 @@ When to use this skill:
    confirm before the write. The new sequence is `COPILOT`: every lead waits
    for approval. Switching to `AUTOPILOT` is done in the web app.
 4. Launch only if they asked to start sending:
-   - `list_sender_identities` → `set_sequence_template_senders`
-     (`attach_identity_ids` covering every channel the steps use,
-     `detach_identity_ids=[]` when unused).
-   - `set_sequence_template_status` to `ACTIVE`.
+   - `set_sequence_template_status` to `ACTIVE`. The launch check names any
+     sender lacking a channel the steps use.
+   - To change who sends: `get_sequence_template_assignment` then
+     `update_sequence_template_assignment` (`sender_mode` `IDENTITIES` with
+     `sender_identity_ids` from `list_sender_identities`, or
+     `CONTACT_OWNER` with `fallback_sender_identity_ids`), then activate
+     again.
 5. Enroll with `importing-and-starting-outreach`. Do not enroll while
    `PENDING_SETUP`.
 
@@ -48,8 +52,9 @@ When to use this skill:
    `get_sequence_template(include_steps=true)` to confirm the source.
 2. `clone_sequence_template(sequence_template_id, name)` → a new
    `sequence_template_id`, still `PENDING_SETUP` and `COPILOT`. Steps and
-   the other operational settings copy; senders do not. Then the same
-   launch steps as create.
+   the other operational settings copy; the sender is the creator's
+   identity, not the source's senders. Then the same launch steps as
+   create.
 
 ## Workflow (edit steps)
 
@@ -72,8 +77,9 @@ When to use this skill:
 
 - Tags: `list_sequence_tags` → `create_sequence_tag` if missing →
   `set_sequence_template_tags` with the full id list (`[]` clears).
-- Task owners: `get_sequence_template_assignment` then
-  `update_sequence_template_assignment` (`assignment_pool_user_ids` from
+- Who gets the tasks: `get_sequence_template_assignment` then
+  `update_sequence_template_assignment` (`task_assignee_mode` `SENDER`,
+  `CONTACT_OWNER` or `MEMBERS` with `assignment_pool_user_ids` from
   `list_organization_members`).
 - Reply-exclusion override: `update_sequence_template_exclusion_settings`.
   Pass `settings=null` to inherit org defaults. The unsubscribe rule is not
