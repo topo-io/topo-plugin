@@ -1,6 +1,6 @@
 ---
 name: getting-started-with-topo
-description: Orient a Topo session — confirm who is signed in, take stock of the workspace, and route the request to the right Topo skill (inbox, tasks, sequences, lead sourcing, signals, playbooks, AI variables, lists, CRM, workspace setup). Use when the user asks what Topo can do, whether they are connected, what is in their workspace, or gives an outbound sales request that does not obviously match another Topo skill.
+description: Orient a Topo session — confirm who is signed in, take stock of the workspace, and route the request to the right Topo skill (notifications, inbox, tasks, sequences, lead sourcing, signals, playbooks, AI variables, lists, CRM, workspace setup). Use when the user asks what Topo can do, whether they are connected, what is in their workspace, or gives an outbound sales request that does not obviously match another Topo skill.
 ---
 
 # Getting started with Topo
@@ -41,6 +41,7 @@ metadata.
 
 | The user wants to | Skill |
 |---|---|
+| Hear what they missed, read or clear their notifications | `catching-up-on-notifications` |
 | Read or answer replies, handle the inbox | `triaging-inbound-replies` |
 | Record a booked meeting, win, loss, unsubscribe | `recording-outreach-outcomes` |
 | Approve or refuse leads waiting on a sequence | `reviewing-waiting-leads` |

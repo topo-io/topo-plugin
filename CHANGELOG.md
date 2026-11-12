@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.6.0
+
+- New `catching-up-on-notifications` skill: "what did I miss?" reads the
+  signed-in user's own notification center with
+  `summarize_missed_notifications` and `list_notifications`, and marks or
+  archives notifications with `mark_notifications_read` and
+  `archive_notifications`. These tools need an OAuth sign-in, and
+  marking everything read takes `confirmed_by_user=true`.
+
 ## 1.5.1
 
 - `openWorldHint` is now true on the lead search tools that query the
