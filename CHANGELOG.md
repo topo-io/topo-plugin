@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+- `archive_notifications` is removed, and `mark_notifications_read` no
+  longer marks notifications unread (`read=false`): the notification center
+  is a single feed whose notifications are marked read when the user opens it.
+
 ## 1.6.0
 
 - New `catching-up-on-notifications` skill: "what did I miss?" reads the
